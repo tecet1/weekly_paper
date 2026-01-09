@@ -5,6 +5,30 @@ numpy: 다차원 배열 객체와 이를 다루는 다양한 함수를 제공하
 pandas: 2차원 배열 형태의 dataframe 객체를 사용해 다양한 전처리 과정을 수행하는 모듈, 내부적으로 numpy를 사용함
 matplotlib: 정의한 데이터를 간단하게 시각화 해주는 모듈
 
+numpy, pandas 에서 인덱싱을 사용하는 방법을 잘 숙지하자!
+numpy: 
+1. nparray[행,열]이 기본적인 인덱싱 방법
+2. nparray[[a,b,c,d],[x,y,z]] 이런식으로 여러 행과 열을 한번에 인덱싱할 수 있음 
+3. nparray[ : , 1] 과 같이 슬라이싱을 활용할 수도 있음.
+4. 불린 인덱싱으로 조건에 맞는 행/열을 추출 가능
+5. np.select로 여러 조건에 대한 마스킹 가능함.
+
+pandas: 
+1. 일단 numpy처럼 dataframe[행,열]처럼 인덱싱은 불가능함
+2. dataframe.loc['행이름', '열이름'], dataframe.iloc['행인덱스', '열인덱스'] 메서드를 사용할 수 있음.
+3. dataframe.loc[['행 이름들']['열 이름들']]로 여러 행/열 추출 가능
+4. numpy와 마찬가지로 마찬가지로 불린 인덱싱 활용가능
+
+Q. 
+1. 넘파이에서 array[1,2,5,2,3]
+2. 넘파이에서 array[[1,2,2,2,3],[3,2,1,0]]
+3. pandas에서 df[0,1]
+
+A.
+1. IndexError, array[[1,2,5,2,3]]과 같이 감싸줘야함
+2. IndexError, 인덱싱에서 행 리스트와 열 리스트의 원소 개수는 동일해야함.
+3. KeyError, df[[0,1]]과 같이 감싸줘야함
+
 seaborn: pandas와 matplotlib 기반으로 더 자세한 시각화를 할 수 있는 모듈
 scikit-learn: 분류(Classification), 회귀(Regression), 군집화(Clustering) 등 알고리즘을 제공하며, 모델 학습에 `fit()`(학습), `predict()`(예측) 명령어를 사용
 
@@ -14,3 +38,4 @@ scikit-learn: 분류(Classification), 회귀(Regression), 군집화(Clustering) 
 ### 3. p값 (p-value)는 무엇인가요?
 p값은 유의수준으로, 낮을 수록 통계적으로 유의함(즉, 대립가설이 귀무가설을 기각할 가능성이 높음). 일반적으로 0.05보다 p값이 낮을 때 통계적으로 유의하다고 판단함.
 > Written with [StackEdit](https://stackedit.io/).
+
